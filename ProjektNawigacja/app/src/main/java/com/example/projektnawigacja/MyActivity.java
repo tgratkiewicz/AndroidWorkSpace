@@ -7,14 +7,23 @@ import android.view.MenuItem;
 
 
 
-public class MyActivity extends Activity {
+public class MyActivity extends MapActivity {
+    private MapView mapView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+        mapView = (MapView) findViewById(R.id.mapView);
+        setupMap();
+
     }
 
+    private void setupMap() {
+        mapView.setBuiltInZoomControls(true);
+        mapView.setTraffic(true);
+        mapView.setSatellite(true);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
